@@ -35,14 +35,24 @@ class DesignTheme {
 }
 
 class DesignColors {
+  static Color lightest = const Color(0xFFF4F4F4);
   static Color orange700 = const Color(0xFFFF5003);
   static Color gray600 = const Color(0xFF6C7278);
   static Color blue700 = const Color(0xFF003F70);
   static Color black600 = const Color(0xFF1A1C1E);
-
+  static Color buttonGrey = const Color(0xFF878889);
   static Color shadowGrey = const Color.fromARGB(135, 224, 223, 223);
   static Color lightPurple = const Color(0xFFEAEEFC);
   static Color lightOrange = const Color(0xFFFCF3EA);
+  static Color unselectedGray = const Color(0xFFEEEEEE);
+  static Color gray400 = const Color(0xFFBBBBBB);
+
+  static Color blue = const Color(0xFF0753EB);
+  static Color red = const Color(0xFFDE0000);
+  static Color orange = const Color(0xFFF88A00);
+  static Color gray200 = const Color(0xFFDCE4E8);
+
+  static List<Color> buttonGradient = <Color>[blue, red, orange];
 }
 
 class DesignDimensions {

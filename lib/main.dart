@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/route_manager.dart';
 import 'package:measure_app/ui/dashboard.dart';
+import 'package:measure_app/utilities/styles.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 void main() {
@@ -20,10 +21,8 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Measure App',
           theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(
-                tertiary: Colors.white,
-                primary: Colors.white,
-                seedColor: Colors.white),
+            scaffoldBackgroundColor: DesignColors.lightest,
+            appBarTheme: AppBarTheme(backgroundColor: DesignColors.lightest),
             useMaterial3: true,
           ),
           home: Dashboard(),
