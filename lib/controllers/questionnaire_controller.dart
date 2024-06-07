@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:get/get.dart';
 import 'package:measure_app/ui/questionnaire/questionnaire_five.dart';
 import 'package:measure_app/ui/questionnaire/questionnaire_four.dart';
@@ -13,7 +15,18 @@ class QuestionnaireController extends GetxController {
   var assessmentTwoItems =
       ["Jill bought candies", "Jill has a dog as pet", "Jill took a cab"].obs;
 
+  var animalLists = ["Chicken", "Horse", "Dog"];
+
   var selectedAssements = <String>[].obs;
+
+  var selectedAnimals = <String>[].obs;
+
+  final List<ChartData> chartData = [
+    ChartData('David', 25, Color.fromRGBO(9, 0, 136, 1)),
+    ChartData('Steve', 75, Color.fromRGBO(147, 0, 119, 1)),
+  ];
+
+  var answers = 5.obs;
 
   questionnaireComponent() {
     switch (currentIndex.value) {
@@ -45,4 +58,19 @@ class QuestionnaireController extends GetxController {
       selectedAssements.remove(item);
     }
   }
+
+  void updateSwitchData(String item) {
+    if (!selectedAnimals.contains(item)) {
+      selectedAnimals.add(item);
+    } else {
+      selectedAnimals.remove(item);
+    }
+  }
+}
+
+class ChartData {
+  ChartData(this.x, this.y, this.color);
+  final String x;
+  final double y;
+  final Color color;
 }

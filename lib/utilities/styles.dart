@@ -55,6 +55,9 @@ class DesignColors {
   static Color gray200 = const Color(0xFFDCE4E8);
 
   static List<Color> buttonGradient = <Color>[blue, red, orange];
+
+  static Color greenText = const Color(0xFF0C9A55);
+  static Color redTet = const Color(0xFF9A0C0C);
 }
 
 class DesignDimensions {

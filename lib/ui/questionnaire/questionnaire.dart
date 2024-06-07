@@ -43,9 +43,9 @@ class Questionnaire extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
           child: Stack(
             children: [
+              AssessmentIndicator(),
               ListView(
                 children: [
-                  AssessmentIndicator(),
                   SizedBox(
                     height: 10.h,
                   ),
@@ -56,74 +56,93 @@ class Questionnaire extends StatelessWidget {
                 bottom: 10,
                 right: 1,
                 left: 1,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Obx(
-                      () => Visibility(
-                        visible:
-                            controller.currentIndex.value >= 1 ? true : false,
-                        child: GestureDetector(
-                          onTap: () {
-                            controller.updateAssessmentIndex(
-                                controller.currentIndex.value - 1);
-                          },
-                          child: Container(
-                            width: controller.currentIndex.value == 4
-                                ? MediaQuery.sizeOf(context).width * 0.35
-                                : MediaQuery.sizeOf(context).width * 0.25,
-                            padding: const EdgeInsets.symmetric(
-                              vertical: 13,
-                            ),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(70),
-                                border: Border.all(
-                                    color: DesignColors.gray400, width: 1),
-                                color: Colors.white),
-                            child: Align(
-                              alignment: Alignment.center,
-                              child: controller.currentIndex.value == 4
-                                  ? Text(
-                                      "Back",
-                                      style: DesignTheme.lightTheme.titleLarge!
-                                          .copyWith(
-                                              fontWeight: FontWeight.w700,
-                                              color: DesignColors.black600),
-                                    )
-                                  : Icon(
-                                      Icons.arrow_back_ios_new,
-                                      size: 20,
-                                      color: DesignColors.gray400,
-                                    ),
-                            ),
+                child: Obx(
+                  () => Column(
+                    children: [
+                      if (controller.currentIndex.value == 3)
+                        Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            "${controller.selectedAnimals.length} correct",
+                            style: DesignTheme.lightTheme.titleMedium!.copyWith(
+                                color: DesignColors.orange500,
+                                fontWeight: FontWeight.w800),
                           ),
                         ),
+                      SizedBox(
+                        height: 2.h,
                       ),
-                    ),
-                    Obx(
-                      () => ButtonComponent(
-                          onTap: () {
-                            if (controller.currentIndex.value == 4) {
-                              print("Print");
-                            } else {
-                              controller.updateAssessmentIndex(
-                                  controller.currentIndex.value + 1);
-                            }
-                          },
-                          title: controller.currentIndex.value == 3
-                              ? "Finish"
-                              : controller.currentIndex.value == 4
-                                  ? "Print"
-                                  : "Continue",
-                          visibility: true,
-                          buttonColor: DesignColors.black600,
-                          width: controller.currentIndex.value == 0
-                              ? 0.9
-                              : controller.currentIndex.value == 4
-                                  ? 0.4
-                                  : 0.55),
-                    ),
-                  ],
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Visibility(
+                            visible: controller.currentIndex.value >= 1
+                                ? true
+                                : false,
+                            child: GestureDetector(
+                              onTap: () {
+                                controller.updateAssessmentIndex(
+                                    controller.currentIndex.value - 1);
+                              },
+                              child: Container(
+                                width: controller.currentIndex.value == 4
+                                    ? MediaQuery.sizeOf(context).width * 0.35
+                                    : MediaQuery.sizeOf(context).width * 0.25,
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 13,
+                                ),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(70),
+                                    border: Border.all(
+                                        color: DesignColors.gray400, width: 1),
+                                    color: Colors.white),
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  child: controller.currentIndex.value == 4
+                                      ? Text(
+                                          "Back",
+                                          style: DesignTheme
+                                              .lightTheme.titleLarge!
+                                              .copyWith(
+                                                  fontWeight: FontWeight.w700,
+                                                  color: DesignColors.black600),
+                                        )
+                                      : Icon(
+                                          Icons.arrow_back_ios_new,
+                                          size: 20,
+                                          color: DesignColors.gray400,
+                                        ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Obx(
+                            () => ButtonComponent(
+                                onTap: () {
+                                  if (controller.currentIndex.value == 4) {
+                                    print("Print");
+                                  } else {
+                                    controller.updateAssessmentIndex(
+                                        controller.currentIndex.value + 1);
+                                  }
+                                },
+                                title: controller.currentIndex.value == 3
+                                    ? "Finish"
+                                    : controller.currentIndex.value == 4
+                                        ? "Print"
+                                        : "Continue",
+                                visibility: true,
+                                buttonColor: DesignColors.black600,
+                                width: controller.currentIndex.value == 0
+                                    ? 0.9
+                                    : controller.currentIndex.value == 4
+                                        ? 0.4
+                                        : 0.55),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               )
             ],
