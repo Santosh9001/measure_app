@@ -7,12 +7,15 @@ class ButtonComponent extends StatelessWidget {
   String title;
   bool visibility;
   Color buttonColor;
+  double width;
   ButtonComponent(
       {super.key,
       required this.onTap,
       required this.title,
       required this.visibility,
-      required this.buttonColor});
+      required this.buttonColor,  
+      this.width = 0.9
+      });
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +31,6 @@ class ButtonComponent extends StatelessWidget {
               opacity: 0.5,
               child: Container(
                 height: 38,
-                width: MediaQuery.of(context).size.width * 0.88,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(25),
                     backgroundBlendMode: BlendMode.color,
@@ -47,10 +49,9 @@ class ButtonComponent extends StatelessWidget {
           child: Container(
             margin: const EdgeInsets.only(bottom: 5),
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 13),
-            width: MediaQuery.of(context).size.width * 0.9,
+            width: MediaQuery.of(context).size.width * width,
             decoration: BoxDecoration(
-                color: buttonColor,
-                borderRadius: BorderRadius.circular(25)),
+                color: buttonColor, borderRadius: BorderRadius.circular(25)),
             child: Align(
               alignment: Alignment.center,
               child: Text(

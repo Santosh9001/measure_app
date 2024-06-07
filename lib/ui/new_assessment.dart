@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:measure_app/components/button_component.dart';
 import 'package:measure_app/controllers/assessment_controller.dart';
+import 'package:measure_app/ui/questionnaire/questionnaire.dart';
 import 'package:measure_app/utilities/styles.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -174,7 +175,9 @@ class NewAssessment extends StatelessWidget {
                   ? Positioned(
                       bottom: 10,
                       child: ButtonComponent(
-                          onTap: () {},
+                          onTap: () {
+                            Get.to(Questionnaire());
+                          },
                           title: "Start assessment",
                           visibility: false,
                           buttonColor: DesignColors.buttonGrey),
@@ -182,7 +185,9 @@ class NewAssessment extends StatelessWidget {
                   : Positioned(
                       bottom: 10,
                       child: ButtonComponent(
-                          onTap: () {},
+                          onTap: () {
+                            Get.to(Questionnaire());
+                          },
                           title: "Start assessment",
                           visibility: true,
                           buttonColor: DesignColors.black600),
