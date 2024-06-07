@@ -4,6 +4,7 @@ import 'package:measure_app/components/assessment_indicator.dart';
 import 'package:measure_app/components/button_component.dart';
 import 'package:measure_app/controllers/questionnaire_controller.dart';
 import 'package:measure_app/utilities/styles.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class Questionnaire extends StatelessWidget {
   Questionnaire({super.key});
@@ -45,6 +46,9 @@ class Questionnaire extends StatelessWidget {
               ListView(
                 children: [
                   AssessmentIndicator(),
+                  SizedBox(
+                    height: 10.h,
+                  ),
                   Obx(() => controller.questionnaireComponent())
                 ],
               ),

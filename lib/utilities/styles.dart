@@ -46,6 +46,8 @@ class DesignColors {
   static Color lightOrange = const Color(0xFFFCF3EA);
   static Color unselectedGray = const Color(0xFFEEEEEE);
   static Color gray400 = const Color(0xFFBBBBBB);
+  static Color grayBorder = const Color(0xFFDCE4E8);
+  static Color orange500 = const Color(0xFFFF8E00);
 
   static Color blue = const Color(0xFF0753EB);
   static Color red = const Color(0xFFDE0000);
